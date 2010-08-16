@@ -3,4 +3,5 @@ require File.dirname(__FILE__)+'/lib/wikipedia'
 
 $KCODE = 'u'
 
-p Wikipedia.random
+w = Wikipedia.new('shokai')
+p w.random

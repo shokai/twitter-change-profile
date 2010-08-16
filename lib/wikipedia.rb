@@ -11,6 +11,10 @@ class Wikipedia
   def initialize(agent_name)
     @agent_name = agent_name
   end
+
+  def random
+    get('特別:おまかせ表示')
+  end
   
   def get(name)
     doc = Nokogiri::HTML open(URI.encode("http://ja.wikipedia.org/wiki/#{name}"), 'User-Agent' => @agent_name).read.toutf8
@@ -25,7 +29,4 @@ class Wikipedia
     }
   end
 
-  def random
-
-  end
 end
