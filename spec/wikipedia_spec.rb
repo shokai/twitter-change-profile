@@ -15,13 +15,29 @@ describe Wikipedia, 'get' do
     @page[:name].class.should == String
   end
 
-  it 'should have description' do
-    @page[:description].class == Array
+  it 'should have descriptions' do
+    @page[:descriptions].class == Array
   end
 
   after(:all) do
-    sleep 3
+    sleep 1
   end
 end
 
+
+describe Wikipedia, 'random' do
+  before(:all) do
+    @wiki = Wikipedia.new('shokai')
+    @page = @wiki.random
+  end
+
+  it 'should be random' do
+    page2 = @wiki.random
+    @page[:name].should_not == page2[:name]
+  end
+
+  after(:all) do
+    sleep 1
+  end
+end
 
