@@ -13,7 +13,9 @@ rescue
   exit 1
 end
 
-tw = Twitter::Base.new(Twitter::HTTPAuth.new(conf['name'], conf['pass']))
+oauth = Twitter::OAuth.new(conf['consumer_key'], conf['consumer_secret'])
+oauth.authorize_from_access(conf['access_token'], conf['access_secret'])
+tw = Twitter::Base.new(oauth)
 w = Wikipedia.new('shokai')
 desc = nil
 5.times do

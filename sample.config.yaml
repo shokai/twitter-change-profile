@@ -1,7 +1,9 @@
 
 # twitter config
-name : "username"
-pass : "password"
+consumer_key : 'your-app-consumer-key'
+consumer_secret : 'your-app-consumer-secret'
+access_token : 'use auth.rb'
+access_secret : 'use auth.rb'
 
 # your name
 your_name : "ストームリバー"
