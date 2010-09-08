@@ -11,9 +11,11 @@ Install
 Config
 ======
 
+regist your app on twitter, and get OAuth consumer key and secret
+
     % cp sample.config.yaml config.yaml
 
-then, edit it.
+edit config.yaml.
 
 Update Your Profile
 ===================
