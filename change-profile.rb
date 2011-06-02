@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 require 'rubygems'
 require 'twitter'
+require 'oauth'
 require 'yaml'
 require File.dirname(__FILE__)+'/lib/wikipedia'
 $KCODE = 'u'
@@ -13,9 +14,14 @@ rescue
   exit 1
 end
 
-oauth = Twitter::OAuth.new(conf['consumer_key'], conf['consumer_secret'])
-oauth.authorize_from_access(conf['access_token'], conf['access_secret'])
-tw = Twitter::Base.new(oauth)
+
+Twitter.configure do |config|
+  config.consumer_key = conf['consumer_key']
+  config.consumer_secret = conf['consumer_secret']
+  config.oauth_token = conf['access_token']
+  config.oauth_token_secret = conf['access_secret']
+end
+
 w = Wikipedia.new('shokai')
 desc = nil
 5.times do
@@ -37,4 +43,4 @@ desc = nil
 end
 exit if desc == nil or desc == conf['your_name']
 
-tw.update_profile({'description' => desc})
+Twitter.update_profile({'description' => desc})
