@@ -7,7 +7,15 @@ Install
 =======
 
     % git clone git://github.com/shokai/twitter-change-profile.git
-    % gem install twitter oauth nokogiri
+    % cd twitter-change-profile
+
+
+Install dependencies
+====================
+
+    % gem install bundler
+    % bundle install
+
 
 Config
 ======
