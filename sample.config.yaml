@@ -7,3 +7,4 @@ access_secret : 'use auth.rb'
 
 # your name
 your_name : "ストームリバー"
+tweet_cmd : "/usr/local/sbin/tweet_log"
