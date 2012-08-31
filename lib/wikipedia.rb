@@ -1,13 +1,11 @@
 # -*- coding: utf-8 -*-
 require 'rubygems'
-require 'open-uri'
 require 'uri'
 require 'nokogiri'
 require 'kconv'
-require 'net/http'
+require 'open-uri'
 
 class Wikipedia
-
   def initialize(agent_name)
     @agent_name = agent_name
   end
@@ -28,5 +26,9 @@ class Wikipedia
       :descriptions => descriptions
     }
   end
+end
 
+if __FILE__ == $0
+  w = Wikipedia.new 'test'
+  p w.random
 end
