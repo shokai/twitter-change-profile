@@ -6,7 +6,6 @@ require 'twitter'
 require 'oauth'
 require 'yaml'
 require File.dirname(__FILE__)+'/lib/wikipedia'
-$KCODE = 'u'
 
 begin
   conf = YAML::load open(File.dirname(__FILE__) + '/config.yaml')

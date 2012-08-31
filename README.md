@@ -30,4 +30,4 @@ edit config.yaml.
 Update Your Profile
 ===================
 
-    % ruby change-profile.rb
+    % ruby -Ku change-profile.rb
