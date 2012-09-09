@@ -29,6 +29,7 @@ class Wikipedia
 end
 
 if __FILE__ == $0
+  require 'bundler/setup'
   w = Wikipedia.new 'test'
   p w.random
 end

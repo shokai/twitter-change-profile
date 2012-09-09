@@ -2,10 +2,9 @@
 # -*- coding: utf-8 -*-
 require 'rubygems'
 require 'bundler/setup'
-require 'twitter'
-require 'oauth'
+Bundler.require
 require 'yaml'
-require File.dirname(__FILE__)+'/lib/wikipedia'
+require File.expand_path 'lib/wikipedia', File.dirname(__FILE__)
 
 begin
   conf = YAML::load open(File.dirname(__FILE__) + '/config.yaml')
