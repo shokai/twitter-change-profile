@@ -44,5 +44,5 @@ exit if desc == nil or desc == conf['your_name']
 
 Twitter.update_profile({'description' => desc})
 
-puts cmd = "#{conf['tweet_cmd']} #{desc}"
+puts cmd = "echo #{desc} | #{conf['tweet_cmd']}"
 system cmd
