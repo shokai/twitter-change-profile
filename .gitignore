@@ -1,6 +1,6 @@
 .DS_Store
 *~
-.fuse*
+.ruby-version
 config.yaml
 .\#*
 *\#*
