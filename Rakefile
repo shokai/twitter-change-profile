@@ -1,4 +1,5 @@
 require 'rubygems'
+require 'bundler/setup'
 
 desc 'run spec'
 require 'spec'
