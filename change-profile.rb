@@ -14,11 +14,11 @@ rescue
 end
 
 
-Twitter.configure do |config|
-  config.consumer_key = conf['consumer_key']
-  config.consumer_secret = conf['consumer_secret']
-  config.oauth_token = conf['access_token']
-  config.oauth_token_secret = conf['access_secret']
+twitter = Twitter::REST::Client.new do |c|
+  c.consumer_key = conf['consumer_key']
+  c.consumer_secret = conf['consumer_secret']
+  c.access_token = conf['access_token']
+  c.access_token_secret = conf['access_secret']
 end
 
 w = Wikipedia.new('shokai')
@@ -42,7 +42,7 @@ desc = nil
 end
 exit if desc == nil or desc == conf['your_name']
 
-Twitter.update_profile({'description' => desc})
+twitter.update_profile({'description' => desc})
 
 puts cmd = "echo #{desc} | #{conf['tweet_cmd']}"
 system cmd
