@@ -12,7 +12,7 @@ rescue
 end
 
 consumer = OAuth::Consumer.new(conf['consumer_key'], conf['consumer_secret'],
-                               :site => "http://api.twitter.com/")
+                               :site => "https://api.twitter.com/")
 
 request_token = consumer.get_request_token(
                                            #:oauth_callback => "http://example.com"
