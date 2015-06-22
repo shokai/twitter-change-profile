@@ -1,13 +1,9 @@
-#!/usr/bin/env ruby
-# -*- coding: utf-8 -*-
-require 'rubygems'
-require 'bundler/setup'
-Bundler.require
+require 'twitter'
 require 'yaml'
 require File.expand_path 'lib/wikipedia', File.dirname(__FILE__)
 
 begin
-  conf = YAML::load open(File.dirname(__FILE__) + '/config.yaml')
+  conf = YAML::load_file File.expand_path 'config.yaml', File.dirname(__FILE__)
 rescue
   STDERR.puts 'config.yaml load error'
   exit 1
@@ -25,7 +21,7 @@ w = Wikipedia.new('shokai')
 desc = nil
 5.times do
   data = w.random
-  
+
   desc = data[:descriptions].first
   desc.gsub!(/\[\d+\]/, '')
   tmp = desc.split(/(と?は)/)
