@@ -34,7 +34,7 @@ desc = nil
     tmp.shift
     left = tmp.shift
   end
-  desc = "#{conf['your_name']}#{tmp.join('')}".toutf8
+  desc = conf['your_name'] + tmp.join('')
   puts '-'*10
   print data[:name] + ' => '
   puts desc
