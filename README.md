@@ -20,14 +20,12 @@ Install dependencies
 Config
 ======
 
-regist your app on twitter, and get OAuth consumer key and secret
-
-    % cp sample.config.yaml config.yaml
-    % ruby auth.rb
+    % tw --user:add
 
 edit config.yaml.
+
 
 Update Your Profile
 ===================
 
-    % ruby -Ku change-profile.rb
+    % bundle exec ruby change-profile.rb

@@ -1,4 +1,4 @@
-require 'twitter'
+require 'tw'
 require 'yaml'
 require File.expand_path 'lib/wikipedia', File.dirname(__FILE__)
 
@@ -9,13 +9,8 @@ rescue
   exit 1
 end
 
-
-twitter = Twitter::REST::Client.new do |c|
-  c.consumer_key = conf['consumer_key']
-  c.consumer_secret = conf['consumer_secret']
-  c.access_token = conf['access_token']
-  c.access_token_secret = conf['access_secret']
-end
+client = Tw::Client.new
+client.auth conf['tw_user']
 
 w = Wikipedia.new('shokai')
 desc = nil
@@ -30,15 +25,20 @@ desc = nil
     tmp.shift
     left = tmp.shift
   end
-  desc = conf['your_name'] + tmp.join('')
-  puts '-'*10
-  print data[:name] + ' => '
-  puts desc
-  break if desc != conf['your_name']
+  if tmp.empty?
+    puts "#{data[:name]} => empty"
+  else
+    desc = conf['your_name'] + tmp.join('')
+    puts "#{data[:name]} => #{desc}"
+    break
+  end
 end
 exit if desc == nil or desc == conf['your_name']
 
-twitter.update_profile({'description' => desc})
+Tw::Client.client.update_profile({'description' => desc})
 
-puts cmd = "echo #{desc} | #{conf['tweet_cmd']}"
-system cmd
+if conf['tw_notify']
+  notify = Tw::Client.new
+  notify.auth conf['tw_notify']
+  notify.tweet desc
+end

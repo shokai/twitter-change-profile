@@ -1,10 +1,6 @@
-
-# twitter config
-consumer_key : 'your-app-consumer-key'
-consumer_secret : 'your-app-consumer-secret'
-access_token : 'use auth.rb'
-access_secret : 'use auth.rb'
+# tw config
+tw_user: "shokai"
+tw_notify: "shokai_log"
 
 # your name
-your_name : "橋本翔"
-tweet_cmd : "tw --user=shokai_log --yes --pipe"
+your_name : "橋本 翔"

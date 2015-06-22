@@ -64,8 +64,6 @@ DEPENDENCIES
   httparty
   json
   nokogiri
-  oauth
   rake
   rspec (< 2.0)
   tw
-  twitter
